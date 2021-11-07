@@ -1,7 +1,9 @@
 main {
   min-height: 80vh;
 }
-
+input {
+  background-color: #efefef !important;
+}
 h3 {
   padding: 1rem 0;
 }
