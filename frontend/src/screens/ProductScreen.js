@@ -105,7 +105,8 @@ const ProductScreen = ({ history, match }) => {
                       color: "white",
                     }}
                   >
-                    <i class=" fas fa-video "> Video Call</i>
+                    <i class=" fas fa-video pr-2 "> </i>
+                    Video Call
                   </div>
                   <div
                     class=" btn btn-block  "
