@@ -40,18 +40,17 @@ const HomeScreen = ({ match }) => {
         </Link>
       )}
       <Container>
-        <h1 style={{ marginTop: "25px" }}>ALL Category</h1>
+        <h3 className="display-6" style={{ marginTop: "25px" }}>
+          Explore Popular Categories
+        </h3>
         <Row style={{ marginTop: "25px", marginBottom: "25px" }}>
           {categorylist?.category?.map((v, k) => (
-            <Col key={v._id} sm={12} md={6} lg={3} xl={3}>
+            <Col key={v._id} sm={12} md={6} lg={2} xl={2}>
               <Card.Img
                 src={v.image}
                 variant="top"
                 style={{
                   height: "150px",
-                  borderRadius: "100%",
-                  paddingLeft: "25px",
-                  paddingRight: "25px",
                 }}
               />
 
@@ -68,7 +67,7 @@ const HomeScreen = ({ match }) => {
             </Col>
           ))}
         </Row>
-        <h1>Latest Products</h1>
+        <h3 className="display-6">Auctions</h3>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -76,7 +75,49 @@ const HomeScreen = ({ match }) => {
         ) : (
           <>
             <Row>
-              {products.map((product) => (
+              {products.slice(0, 4).map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                  <Product product={product} />
+                </Col>
+              ))}
+            </Row>
+            <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ""}
+            />
+          </>
+        )}
+        <h3 className="display-6">Daily Product</h3>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : (
+          <>
+            <Row>
+              {products.slice(4, 8).map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                  <Product product={product} />
+                </Col>
+              ))}
+            </Row>
+            <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ""}
+            />
+          </>
+        )}
+        <h3 className="display-6">Latest Products</h3>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : (
+          <>
+            <Row>
+              {products.slice(8, 10000).map((product) => (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                   <Product product={product} />
                 </Col>

@@ -96,6 +96,24 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
+                <ListGroup.Item style={{ display: "flex" }}>
+                  <i
+                    class="fas fa-video pr-3"
+                    style={{
+                      fontSize: "25px",
+                      cursor: "pointer",
+                      color: "#4A8CFF",
+                    }}
+                  ></i>
+                  <i
+                    class="fas fa-sms"
+                    style={{
+                      fontSize: "25px",
+                      cursor: "pointer",
+                      color: "#23BE2E",
+                    }}
+                  ></i>
+                </ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -143,6 +161,18 @@ const ProductScreen = ({ history, match }) => {
                   )}
 
                   <ListGroup.Item>
+                    <Button
+                      onClick={addToCartHandler}
+                      className="btn btn-block "
+                      style={{
+                        color: "black",
+                        backgroundColor: "white",
+                        border: "1px solid #1E1E1E",
+                      }}
+                      type="button"
+                    >
+                      Auction
+                    </Button>
                     <Button
                       onClick={addToCartHandler}
                       className="btn-block"
