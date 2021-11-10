@@ -96,23 +96,27 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
-                <ListGroup.Item style={{ display: "flex" }}>
-                  <i
-                    class="fas fa-video pr-3"
+                <ListGroup.Item>
+                  <div
+                    class=" btn btn-block  "
                     style={{
-                      fontSize: "25px",
                       cursor: "pointer",
-                      color: "#4A8CFF",
+                      background: "#4A8CFF",
+                      color: "white",
                     }}
-                  ></i>
-                  <i
-                    class="fas fa-sms"
+                  >
+                    <i class=" fas fa-video "> Video Call</i>
+                  </div>
+                  <div
+                    class=" btn btn-block  "
                     style={{
-                      fontSize: "25px",
-                      cursor: "pointer",
-                      color: "#23BE2E",
+                      color: "white",
+                      background: "#23BE2E",
                     }}
-                  ></i>
+                  >
+                    <i className="fas fa-sms pr-3"></i>
+                    Message
+                  </div>
                 </ListGroup.Item>
               </ListGroup>
             </Col>
