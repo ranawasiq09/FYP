@@ -16,6 +16,9 @@
   "author": "FYP",
   "license": "MIT",
   "dependencies": {
+    "@mui/icons-material": "^5.1.0",
+    "@mui/material": "^5.1.0",
+    "@mui/styles": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^8.6.0",
@@ -24,7 +27,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "react-material-ui-carousel": "^3.0.4"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
