@@ -41,7 +41,7 @@ const HomeScreen = ({ match }) => {
       <h1 style={{ marginTop: "25px" }}>ALL Category</h1>
       <Row style={{ marginTop: "25px", marginBottom: "25px" }}>
         {categorylist?.category?.map((v, k) => (
-          <Col key={v._id} sm={12} md={6} lg={3} xl={3} style={{}}>
+          <Col key={v._id} sm={12} md={6} lg={3} xl={3}>
             <Card.Img
               src={v.image}
               variant="top"
@@ -56,9 +56,9 @@ const HomeScreen = ({ match }) => {
             <Card.Text
               style={{
                 textAlign: "center",
-                marginTop: "15px",
-                fontSize: "15px",
-                fontWeight: "500",
+                marginTop: "20px",
+                fontSize: "20px",
+                fontWeight: "800",
               }}
             >
               {v.name}
