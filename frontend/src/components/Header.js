@@ -26,7 +26,7 @@ const Header = () => {
         className="pl-5 pr-3"
       >
         <LinkContainer to="/">
-          <Navbar.Brand>ProShop</Navbar.Brand>
+          <Navbar.Brand>E-DUKAN</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
