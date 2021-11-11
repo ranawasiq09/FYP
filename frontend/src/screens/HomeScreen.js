@@ -45,7 +45,7 @@ const HomeScreen = ({ match }) => {
         </h3>
         <Row style={{ marginTop: "25px", marginBottom: "25px" }}>
           {categorylist?.category?.map((v, k) => (
-            <Col key={v._id} sm={12} md={6} lg={2} xl={2}>
+            <Col key={v._id} sm={4} md={3} lg={2} xl={2}>
               <Card.Img
                 src={v.image}
                 variant="top"
