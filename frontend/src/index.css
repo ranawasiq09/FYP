@@ -22,7 +22,9 @@ h2 {
 .rating span {
   margin: 0.1rem;
 }
-
+li {
+  font-weight: 400;
+}
 /* carousel
 .carousel-item-next,
 .carousel-item-prev,

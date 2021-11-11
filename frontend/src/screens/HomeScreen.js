@@ -58,8 +58,8 @@ const HomeScreen = ({ match }) => {
                 style={{
                   textAlign: "center",
                   marginTop: "20px",
-                  fontSize: "20px",
-                  fontWeight: "800",
+                  fontSize: "15px",
+                  fontWeight: "700",
                 }}
               >
                 {v.name}
@@ -67,7 +67,7 @@ const HomeScreen = ({ match }) => {
             </Col>
           ))}
         </Row>
-        <h3 className="display-6">Auctions</h3>
+        <h3 className="display-6 mt-5 mb-3">Auctions</h3>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -88,7 +88,7 @@ const HomeScreen = ({ match }) => {
             />
           </>
         )}
-        <h3 className="display-6">Daily Product</h3>
+        <h3 className="display-6 mt-5 mb-3">Daily Product</h3>
         {loading ? (
           <Loader />
         ) : error ? (
@@ -109,7 +109,7 @@ const HomeScreen = ({ match }) => {
             />
           </>
         )}
-        <h3 className="display-6">Latest Products</h3>
+        <h3 className="display-6 mt-5 mb-3">Latest Products</h3>
         {loading ? (
           <Loader />
         ) : error ? (
