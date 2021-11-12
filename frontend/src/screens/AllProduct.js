@@ -35,7 +35,7 @@ function AllProduct({ match }) {
       }
     }
     setLengths(p?.length);
-  }, [catId]);
+  }, [catId, productList]);
   useEffect(() => {
     setAllProduct(products);
     setLengths(products?.length);

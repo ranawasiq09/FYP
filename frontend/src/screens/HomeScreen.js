@@ -49,7 +49,7 @@ const HomeScreen = ({ match }) => {
               <Link
                 to={{
                   pathname: "/allProduct",
-                  state: { message: v._id },
+                  state: { message: "all" },
                 }}
               >
                 <Card.Img
