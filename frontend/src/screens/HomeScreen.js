@@ -46,24 +46,31 @@ const HomeScreen = ({ match }) => {
         <Row style={{ marginTop: "25px", marginBottom: "25px" }}>
           {categorylist?.category?.map((v, k) => (
             <Col key={v._id} sm={4} md={3} lg={2} xl={2}>
-              <Card.Img
-                src={v.image}
-                variant="top"
-                style={{
-                  height: "150px",
-                }}
-              />
-
-              <Card.Text
-                style={{
-                  textAlign: "center",
-                  marginTop: "20px",
-                  fontSize: "15px",
-                  fontWeight: "700",
+              <Link
+                to={{
+                  pathname: "/allProduct",
+                  state: { message: v._id },
                 }}
               >
-                {v.name}
-              </Card.Text>
+                <Card.Img
+                  src={v.image}
+                  variant="top"
+                  style={{
+                    height: "150px",
+                  }}
+                />
+
+                <Card.Text
+                  style={{
+                    textAlign: "center",
+                    marginTop: "20px",
+                    fontSize: "15px",
+                    fontWeight: "700",
+                  }}
+                >
+                  {v.name}
+                </Card.Text>
+              </Link>
             </Col>
           ))}
         </Row>

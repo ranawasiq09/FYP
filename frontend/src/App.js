@@ -20,17 +20,18 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import CategoryListScreen from "./screens/CategoryListScreen";
 import CategoryEditScreen from "./screens/CategoryEditScreen";
+import AllProduct from "./screens/AllProduct";
 
 const App = () => {
   return (
     <Router>
       <Header />
       <main className="">
-        <Route path="/search/:keyword" component={HomeScreen} exact />
-        <Route path="/page/:pageNumber" component={HomeScreen} exact />
+        <Route path="/search/:keyword" component={AllProduct} exact />
+        <Route path="/page/:pageNumber" component={AllProduct} exact />
         <Route
           path="/search/:keyword/page/:pageNumber"
-          component={HomeScreen}
+          component={AllProduct}
           exact
         />
         <Route path="/" component={HomeScreen} exact />
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/user/:id/edit" component={UserEditScreen} />
+          <Route path="/allProduct" component={AllProduct} />
           <Route
             path="/admin/productlist"
             component={ProductListScreen}

@@ -28,7 +28,7 @@ const ProductCarousel = () => {
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>
             <div
-              className="row  "
+              className="row"
               style={{ height: "65vh", background: color[i] }}
             >
               <div className="col-lg-4 d-none d-md-block float-left">
