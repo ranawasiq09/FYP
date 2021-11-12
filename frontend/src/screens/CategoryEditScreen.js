@@ -122,12 +122,13 @@ const CategoryEditScreen = ({ match, history }) => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.File
+              <Form.Control
                 id="image-file"
                 label="Choose File"
                 custom
                 onChange={uploadFileHandler}
-              ></Form.File>
+                type="file"
+              ></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
 

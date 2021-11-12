@@ -5,7 +5,6 @@ import Category from "../models/categoryModal.js";
 // @route   GET /api/products
 // @access  Public
 const getCatgory = asyncHandler(async (req, res) => {
-  console.log("called");
   const pageSize = 10;
   const page = Number(req.query.pageNumber) || 1;
 
@@ -19,10 +18,10 @@ const getCatgory = asyncHandler(async (req, res) => {
     : {};
 
   const count = await Category.countDocuments({ ...keyword });
-  const categories = await Category.find({ ...keyword })
+  const c = await Category.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
-
+  const categories = c.filter((v) => v._id != "618e8b2791eb0776a817f7b5");
   res.json({ categories, page, pages: Math.ceil(count / pageSize) });
 });
 
