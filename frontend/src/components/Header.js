@@ -48,9 +48,9 @@ const Header = () => {
                 </LinkContainer>
                 {userInfo.isAdmin ? (
                   <>
-                    <LinkContainer to="/admin/userlist">
+                    {/* <LinkContainer to="/admin/userlist">
                       <NavDropdown.Item>Users</NavDropdown.Item>
-                    </LinkContainer>
+                    </LinkContainer> */}
                     <LinkContainer to="/admin/productlist">
                       <NavDropdown.Item>Products</NavDropdown.Item>
                     </LinkContainer>
