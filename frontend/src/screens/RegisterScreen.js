@@ -31,15 +31,20 @@ const RegisterScreen = ({ location, history }) => {
   }, [history, userInfo, redirect]);
 
   const submitHandler = async (e) => {
+    console.log(password.toString().length, "length");
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
-    } else if (name === "") {
+    if (name === "") {
       setMessage("Please Enter Name");
     } else if (email === "") {
       setMessage("Please Enter Email");
     } else if (password === "") {
       setMessage("Please Enter Password");
+    } else if (password.toString().length < 4) {
+      setMessage("Password should be greater than 4  character");
+    } else if (password.toString().length > 15) {
+      setMessage("Password should be less than 15 character");
+    } else if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
     } else {
       try {
         const config = {
@@ -77,7 +82,12 @@ const RegisterScreen = ({ location, history }) => {
             type="name"
             placeholder="Enter name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              let value = e.target.value;
+              value = value.replace(/[^A-Za-z]/gi, "");
+
+              setName(value);
+            }}
           ></Form.Control>
         </Form.Group>
 
