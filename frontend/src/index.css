@@ -68,3 +68,6 @@ li {
 .form-check-label {
   padding-top: 3px !important;
 }
+tspan {
+  font-size: 13px !important;
+}

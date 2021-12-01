@@ -1,13 +1,22 @@
 import React, { useEffect, useState, PureComponent } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Bar } from "react-chartjs-2";
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 import { Table, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listOrders } from "../actions/orderActions";
-import { VictoryBar, VictoryChart } from "victory";
+import { VictoryBar, VictoryChart, VictoryTheme } from "victory";
 
 const Dashboard = ({ history }) => {
   const dispatch = useDispatch();
@@ -19,7 +28,12 @@ const Dashboard = ({ history }) => {
   const orderList = useSelector((state) => state.orderList);
   const { loading, error, orders } = orderList;
   const [renderOrder, setRenderOrder] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    { quarter: 1, earnings: 13000 },
+    { quarter: 2, earnings: 16500 },
+    { quarter: 3, earnings: 14250 },
+    { quarter: 4, earnings: 19000 },
+  ]);
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -52,15 +66,16 @@ const Dashboard = ({ history }) => {
       groups[date].push(game);
       return groups;
     }, {});
+
     if (groups) {
       let last = Object.keys(groups).map((date) => {
         let sum = 0;
         groups[date].map((v, k) => {
           sum = v.totalPrice + sum;
         });
-        return { name: date, uv: sum };
+        return { quarter: date, earnings: sum };
       });
-      setData(last);
+      setTimeout(() => setData([...last]), 5);
     }
   }, [orders, userId]);
   return (
@@ -131,7 +146,22 @@ const Dashboard = ({ history }) => {
                 {isNaN(totalUnPaidOrder) ? 0 : totalUnPaidOrder}
               </p>
             </Col>
-            <Col xs={12}></Col>
+            <Col xs={12}>
+              {data.length > 0 ? (
+                <VictoryChart width={950} height={400}>
+                  <VictoryBar
+                    alignment="start"
+                    data={data}
+                    // data accessor for x values
+                    x="quarter"
+                    // data accessor for y values
+                    y="earnings"
+                  />
+                </VictoryChart>
+              ) : (
+                ""
+              )}
+            </Col>
           </Row>
         </>
       )}
