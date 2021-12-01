@@ -17,7 +17,7 @@ function AllProduct({ match }) {
   const { products, loading } = productList;
   const [allProducts, setAllProduct] = useState([]);
   const [lengths, setLengths] = useState(1);
-  const [catId, setCatId] = useState("all");
+  const [catId, setCatId] = useState(["all"]);
   const location = useLocation();
   useEffect(() => {
     dispatch(listProducts(keyword, ""));
@@ -25,25 +25,19 @@ function AllProduct({ match }) {
   }, [dispatch, keyword]);
   useEffect(() => {
     let p = products;
-    console.log(catId);
-    if (catId) {
-      if (catId.includes("all")) {
-        setAllProduct(products);
-      } else {
-        p = products?.filter((s) => s.category._id === catId);
-        setAllProduct(p);
-      }
+    if (catId.includes("all")) {
+      setAllProduct(products);
+    } else {
+      p = products?.filter((s) => s.category._id === catId);
+      setAllProduct(p);
     }
+
     setLengths(p?.length);
   }, [catId, productList]);
-  useEffect(() => {
-    setAllProduct(products);
-    setLengths(products?.length);
-  }, [productList]);
 
   useEffect(() => {
     if (location?.state?.message) {
-      setCatId(location.state.message);
+      setCatId(location?.state.message);
       console.log(location.state.message);
     }
   }, []);

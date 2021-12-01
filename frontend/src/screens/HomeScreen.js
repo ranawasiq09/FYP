@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Button } from "react-bootstrap";
 import Product from "../components/Product";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -14,6 +14,7 @@ import { Container } from "react-bootstrap";
 import { CATEGORY_DELETE_SUCCESS } from "../constants/categoryConstant";
 
 const HomeScreen = ({ match }) => {
+  const [limit, setLimit] = useState(12);
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -49,7 +50,7 @@ const HomeScreen = ({ match }) => {
               <Link
                 to={{
                   pathname: "/allProduct",
-                  state: { message: "all" },
+                  state: { message: v?._id },
                 }}
               >
                 <Card.Img
@@ -124,11 +125,39 @@ const HomeScreen = ({ match }) => {
         ) : (
           <>
             <Row>
-              {products.slice(8, 10000).map((product) => (
-                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+              {products.slice(8, limit).map((product) => (
+                <Col
+                  key={product._id}
+                  sm={12}
+                  md={6}
+                  lg={4}
+                  xl={3}
+                  className="mt-2 mb-2"
+                >
                   <Product product={product} />
                 </Col>
               ))}
+              {limit === 12 ? (
+                <Col sm={12}>
+                  <Button
+                    style={{ width: "100%" }}
+                    className="mt-5"
+                    onClick={() => setLimit(1000)}
+                  >
+                    Show More
+                  </Button>
+                </Col>
+              ) : (
+                <Col sm={12}>
+                  <Button
+                    style={{ width: "100%" }}
+                    className="mt-5"
+                    onClick={() => setLimit(12)}
+                  >
+                    Show Less
+                  </Button>
+                </Col>
+              )}
             </Row>
             <Paginate
               pages={pages}
