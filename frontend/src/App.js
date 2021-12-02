@@ -47,8 +47,8 @@ const App = () => {
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/dashboard" component={Dashboard} />
-          {/* <Route path="/admin/userlist" component={UserListScreen} /> */}
-          {/* <Route path="/admin/user/:id/edit" component={UserEditScreen} /> */}
+          <Route path="/admin/userlist" component={UserListScreen} />
+          <Route path="/admin/user/:id/edit" component={UserEditScreen} />
           <Route path="/allProduct" component={AllProduct} />
           <Route
             path="/admin/productlist"
