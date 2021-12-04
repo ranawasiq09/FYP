@@ -42,7 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password,
-    isAdmin: true,
+    isAdmin: false,
   });
 
   if (user) {
