@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://mustafa:12345@cluster0.mkepy.mongodb.net/Mern?retryWrites=true&w=majority",
+      "mongodb+srv://hannan:<password>@cluster0.4otgq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
       {
         useUnifiedTopology: true,
         useNewUrlParser: true,
