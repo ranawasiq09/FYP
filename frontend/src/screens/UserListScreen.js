@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers, deleteUser } from "../actions/userActions";
+import axios from "axios";
 
 const UserListScreen = ({ history }) => {
+  const [show, setShow] = useState([]);
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.userLogin.userInfo.token);
 
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList;
@@ -25,11 +28,35 @@ const UserListScreen = ({ history }) => {
       history.push("/login");
     }
   }, [dispatch, history, successDelete, userInfo]);
+  const config = {
+    headers: {
+      Authorization: `Bearer ${state}`,
+    },
+  };
+  const call = () => {
+    axios.get("/api/request", config).then((res) => {
+      if (res.data.length > 0) {
+        if (users) {
+          let arr = [];
+          console.log(res.data);
+          res.data.map((s) => {
+            users.find((v) => (v._id === s.user ? arr.push(v) : ""));
+          });
+          setShow(arr);
+        }
+      } else {
+        setShow([]);
+      }
+    });
+  };
+  useEffect(() => {
+    call();
+  }, [users]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure")) {
-      dispatch(deleteUser(id));
-    }
+    axios.delete(`/api/request/${id}`, config).then((res) => {
+      call();
+    });
   };
 
   return (
@@ -49,7 +76,7 @@ const UserListScreen = ({ history }) => {
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => (
+            {show?.map((user) => (
               <tr key={user._id}>
                 <td>{user._id}</td>
                 <td>{user.name}</td>

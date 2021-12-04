@@ -46,6 +46,13 @@ const Header = () => {
                 <LinkContainer to="/profile">
                   <NavDropdown.Item>Profile</NavDropdown.Item>
                 </LinkContainer>
+                {!userInfo.isAdmin ? (
+                  <LinkContainer to="/request">
+                    <NavDropdown.Item>Become seller</NavDropdown.Item>
+                  </LinkContainer>
+                ) : (
+                  ""
+                )}
                 {userInfo.isAdmin ? (
                   <>
                     {userInfo.superAdmin ? (

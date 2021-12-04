@@ -22,6 +22,7 @@ import CategoryListScreen from "./screens/CategoryListScreen";
 import CategoryEditScreen from "./screens/CategoryEditScreen";
 import AllProduct from "./screens/AllProduct";
 import Dashboard from "./screens/Dashboard";
+import RequestScreen from "./screens/Request";
 
 const App = () => {
   return (
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="/admin/orderlist" component={OrderListScreen} />
 
           <Route path="/admin/categorylist" component={CategoryListScreen} />
+          <Route path="/request" component={RequestScreen} />
         </Container>
       </main>
       <Footer />

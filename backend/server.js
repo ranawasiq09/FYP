@@ -11,6 +11,7 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 dotenv.config();
 
@@ -29,7 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/category", categoryRoutes);
-
+app.use("/api/request", adminRoutes);
 app.get("/api/config/paypal", (req, res) =>
   res.send(
     "AYOLWtdN1mXMMLaYNGYiTn-UOLN7w-ndxuADd_wjywVu8n-SMveSeHP9HFEptpR58S8xqgJnqWcyAxFi"
