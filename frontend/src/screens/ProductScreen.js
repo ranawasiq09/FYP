@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +21,7 @@ import {
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
-const ProductScreen = ({ history, match }) => {
+const ProductScreen = ({location, history, match }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -39,8 +40,10 @@ const ProductScreen = ({ history, match }) => {
     loading: loadingProductReview,
     error: errorProductReview,
   } = productReviewCreate;
+  const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (successProductReview) {
       setRating(0);
       setComment("");
@@ -65,6 +68,7 @@ const ProductScreen = ({ history, match }) => {
     );
   };
 
+
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
@@ -78,10 +82,10 @@ const ProductScreen = ({ history, match }) => {
         <>
           <Meta title={product.name} />
           <Row>
-            <Col md={6}>
+            <Col md={4}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
+            <Col className="product-detail-ag" md={5}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
@@ -92,43 +96,43 @@ const ProductScreen = ({ history, match }) => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item><b>Price:</b> {product.price} Rs</ListGroup.Item>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  <b>Description</b> {product.description}
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <div
-                    class=" btn btn-block  "
-                    style={{
-                      cursor: "pointer",
-                      background: "#4A8CFF",
-                      color: "white",
-                    }}
-                  >
-                    <i class=" fas fa-video pr-2 "> </i>
-                    Video Call
-                  </div>
+                <ListGroup.Item>  
+                  <Link className="btn-block btn btn-primary" to={redirect ? `/Rentt?redirect=${redirect}` : "/Rentt"}>
+                    Rent
+                  </Link>
+                  {/* <Button type="submit" variant="primary" >
+                            Rent
+                        </Button> */}
+                    {/* <i class=" fas fa-video pr-2 "> </i>
+                    Video Call */}
+                    <a href="tel:03054013209">
                   <div
                     class=" btn btn-block  "
                     style={{
                       color: "white",
                       background: "#23BE2E",
+                      marginTop: "7px"
                     }}
                   >
                     <i className="fas fa-sms pr-3"></i>
                     Message
                   </div>
+                  </a>
                 </ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col md={3}>
+            <Col className="product-detail-ag-p" md={3}>
               <Card>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>{product.price} Rs</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -166,7 +170,7 @@ const ProductScreen = ({ history, match }) => {
                   )}
 
                   <ListGroup.Item>
-                    <Button
+                    {/* <Button
                       onClick={addToCartHandler}
                       className="btn btn-block "
                       style={{
@@ -177,7 +181,7 @@ const ProductScreen = ({ history, match }) => {
                       type="button"
                     >
                       Auction
-                    </Button>
+                    </Button> */}
                     <Button
                       onClick={addToCartHandler}
                       className="btn-block"
@@ -192,7 +196,7 @@ const ProductScreen = ({ history, match }) => {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
+            <Col className="reviews-ag" md={12}>
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant="flush">

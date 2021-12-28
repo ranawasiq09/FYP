@@ -37,6 +37,7 @@ const CategoryEditScreen = ({ match, history }) => {
   } = categoryUpdate;
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (successUpdate) {
       dispatch({ type: CATEGORY_UPDATE_RESET });
       history.push("/admin/categorylist");

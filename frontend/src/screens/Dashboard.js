@@ -38,6 +38,7 @@ const Dashboard = ({ history }) => {
   const { userInfo } = userLogin;
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (userInfo && userInfo.isAdmin) {
       dispatch(listOrders());
     } else {
@@ -99,7 +100,7 @@ const Dashboard = ({ history }) => {
             >
               <h4 style={{ fontSize: "14px" }}>Total Amount Of Order</h4>
               <p style={{ fontWeight: "400" }} className="pt-1">
-                ${isNaN(amount) ? 0 : amount}
+                {isNaN(amount) ? 0 : amount} Rs
               </p>
             </Col>
             <Col

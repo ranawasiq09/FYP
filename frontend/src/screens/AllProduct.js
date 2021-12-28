@@ -20,6 +20,7 @@ function AllProduct({ match }) {
   const [catId, setCatId] = useState(["all"]);
   const location = useLocation();
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch(listProducts(keyword, ""));
     dispatch(listCategory("", ""));
   }, [dispatch, keyword]);

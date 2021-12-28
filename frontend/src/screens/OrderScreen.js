@@ -47,6 +47,7 @@ const OrderScreen = ({ match, history }) => {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (!userInfo) {
       history.push("/login");
     }
@@ -91,7 +92,7 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1>Order</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
@@ -174,25 +175,25 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>{order.itemsPrice} Rs</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col>{order.shippingPrice} Rs</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>{order.taxPrice} Rs</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>{order.totalPrice} Rs</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (

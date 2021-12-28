@@ -40,6 +40,7 @@ const ProductListScreen = ({ history, match }) => {
   const { userInfo } = userLogin;
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     let p = products?.filter((p) => p.user === userId);
     console.log("here is my product", p);
     setProductRender(p);
@@ -116,7 +117,7 @@ const ProductListScreen = ({ history, match }) => {
                 <tr key={product?._id}>
                   <td>{product?._id}</td>
                   <td>{product?.name}</td>
-                  <td>${product?.price}</td>
+                  <td>{product?.price} Rs</td>
                   <td>{product?.category?.name}</td>
                   <td>{product?.brand}</td>
                   <td>

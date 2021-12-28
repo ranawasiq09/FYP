@@ -22,7 +22,7 @@ const Product = ({ product }) => {
             }}
           >
             {product.name}
-            <p style={{ fontWeight: "800" }}>${product.price}</p>
+            <p style={{ fontWeight: "800" }}>{product.price}Rs</p>
           </Card.Title>
           <Card.Text>
             <div style={{ height: "9vh", marginTop: "-20px" }}>
@@ -39,7 +39,7 @@ const Product = ({ product }) => {
           >
             <div
               className="btn btn-block  btn-outline-dark mt-4"
-              style={{ padding: "8.5px", border: "1px solid black" }}
+              style={{ padding: "8.5px", border: "2px solid white", color: "#fff" }}
             >
               View Details
             </div>

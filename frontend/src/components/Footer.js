@@ -36,12 +36,6 @@ const Footer = () => {
                     <a>About us</a>
                   </li>
                   <li>
-                    <a>Jobs</a>
-                  </li>
-                  <li>
-                    <a>Press info</a>
-                  </li>
-                  <li>
                     <a>Contact</a>
                   </li>
                   <li>
@@ -92,20 +86,20 @@ const Footer = () => {
               <div class=" col-6 col-lg-3">
                 <h5>Our location:</h5>
                 <address>
-                  <strong>Cameo</strong>
+                  <strong>Lahore</strong>
                   <br></br>
-                  350 5th Avenue<br></br>
-                  New York, NY 10118<br></br>
+                   Office 350 5th Avenue<br></br>
+                  Lahore, Punjab 10118<br></br>
                   <i className="fa fa-fw fa-phone pr-4" aria-hidden="true"></i>
-                  <span>Telephone:</span>{" "}
-                  <a id="info" href="tel:+12127363100">
-                    (212) 736-3100
+                  <span>Phone:</span>{" "}
+                  <a id="info" href="tel:+923054013209">
+                    03054013209
                   </a>
                   <br></br>
                   <i className="fa fa-fw fa-inbox pr-4" aria-hidden="true"></i>
                   <span>Mail:</span>{" "}
-                  <a id="info" href="mailto:info@cameo.com">
-                    info@cameo.com
+                  <a id="info" href="mailto:info@agritech.com">
+                    info@agritech.com
                   </a>
                 </address>
               </div>
@@ -113,7 +107,7 @@ const Footer = () => {
             <div className="row">
               <div className="col-12 col-sm-6 col-lg-9">
                 <ul className="list-inline">
-                  <li className="list-inline-item">Copyright &copy; E-Dukan</li>
+                  <li className="list-inline-item">Copyright &copy; AgriTech</li>
                   <li className="list-inline-item">All rights reserved.</li>
                   <li className="list-inline-item">
                     <a data-toggle="modal" data-target="#modal">

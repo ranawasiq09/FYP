@@ -26,6 +26,7 @@ const HomeScreen = ({ match }) => {
   const { loading, error, products, page, pages } = productList;
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch(listProducts(keyword, pageNumber));
     dispatch(listCategory("", ""));
   }, [dispatch, keyword, pageNumber]);
@@ -50,7 +51,7 @@ const HomeScreen = ({ match }) => {
               <Link
                 to={{
                   pathname: "/allProduct",
-                  state: { message: v?._id },
+                  state: { message: 0 },
                 }}
               >
                 <Card.Img

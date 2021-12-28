@@ -40,6 +40,7 @@ const CategoryListScreen = ({ history, match }) => {
   const { userInfo } = userLogin;
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch({ type: CATEGORY_CREATE_RESET });
 
     if (!userInfo || !userInfo.isAdmin) {

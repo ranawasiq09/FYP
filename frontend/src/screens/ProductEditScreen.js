@@ -35,6 +35,7 @@ const ProductEditScreen = ({ match, history }) => {
   } = productUpdate;
   const categorylist = useSelector((state) => state?.categoryList?.category);
   useEffect(() => {
+    window.scrollTo(0, 0)
     setCategories(categorylist);
     console.log(categorylist, "heehh");
   }, [categorylist]);
